@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'covid';
+  private _status = false;
+  constructor() {}
+
+  changeStatus() {
+    this._status = !this._status;
+  }
+
+  get status() {
+    return this._status
+  }
+
+  set status(value) {
+    this._status = value;
+  }
 }

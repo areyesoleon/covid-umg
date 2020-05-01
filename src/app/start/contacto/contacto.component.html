@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <nb-card>
+    <nb-card-header>Encuentros </nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <input formControlName="email" type="email" nbInput fullWidth fieldSize="medium" placeholder="Correo">
+          </div>
+        </div>
+        <div class="col">
+          Cantidad de personas vistas: {{core.encuentros.length}}
+        </div>
+      </div>
+
+    </nb-card-body>
+    <nb-card-footer>
+      <div class="d-flex justify-content-around">
+        <button title="Guardar" nbButton status="success"><i class="fas fa-save"></i></button>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</form>
+
+<div>
+  
+</div>

@@ -1,0 +1,21 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <nb-card>
+    <nb-card-header>Informacion </nb-card-header>
+    <nb-card-body>
+      <div class="form-group">
+        <input formControlName="name" type="text" nbInput fullWidth fieldSize="medium" placeholder="Nombre">
+      </div>
+      <div class="form-group">
+        <input formControlName="email" type="email" nbInput fullWidth fieldSize="medium" placeholder="Correo">
+      </div>
+      <div class="form-group">
+        <input formControlName="dir" type="text" nbInput fullWidth fieldSize="medium" placeholder="Direccion">
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <div class="d-flex justify-content-around">
+        <button title="Guardar" nbButton status="success"><i class="fas fa-save"></i></button>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</form>
