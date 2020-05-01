@@ -6,7 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ChartComponent } from './chart/chart.component';
-import { ChartsModule } from 'ng2-charts';
+// import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
