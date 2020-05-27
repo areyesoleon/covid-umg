@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CoreService } from 'src/app/core/core.service';
+import { WebSocketService } from 'src/app/web-socket.service';
 
 @Component({
   selector: 'app-perfil',
@@ -11,12 +12,13 @@ export class PerfilComponent implements OnInit {
 
   private _form: FormGroup;
 
-  constructor(private builder: FormBuilder, private core: CoreService) {
+  constructor(private builder: FormBuilder, private core: CoreService, private ws: WebSocketService) {
     this._form = this.builder.group({
       name: null,
       email: null,
       dir: null,
-      sick: false
+      sick: false,
+      encuentros: [[]]
     });
   }
 
@@ -29,7 +31,9 @@ export class PerfilComponent implements OnInit {
 
   save() {
     this.core.pushUser(this._form.value);
+    this.ws.emit('user:ws', this._form.value);
     this._form.reset();
+    this._form.patchValue({sick: false});
   }
 
 
