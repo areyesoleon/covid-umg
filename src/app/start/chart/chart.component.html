@@ -1,22 +1,14 @@
 <div class="d-flex justify-content-around" >
-  <nb-card size="tiny">
-    <nb-card-header>Estado <i class="fas fa-smile-wink text-success fa-2x"></i></nb-card-header>
+  <nb-card *ngFor="let user of users" size="tiny">
+    <nb-card-header>Estado 
+      <i class="fas {{user.sick ? 'fa-head-side-cough text-danger' : 'fa-smile-wink text-success'}}  fa-2x"></i>
+    </nb-card-header>
     <nb-card-body>
-      Nombre: Andres Reyes
+      Nombre: {{user.name}}
       <br>
-      Email: areyes.oleon@gmail
+      Email: {{user.email}}
       <br>
-      Direccion: Guatemala
-    </nb-card-body>
-  </nb-card>
-  <nb-card size="tiny">
-    <nb-card-header>Estado <i class="fas fa-sad-cry text-danger fa-2x"></i></nb-card-header>
-    <nb-card-body>
-      Nombre: Pacho Perez
-      <br>
-      Email: pancho.perez@gmail
-      <br>
-      Direccion: Guatemala, zacapa
+      Direccion: {{user.dir}}
     </nb-card-body>
   </nb-card>
 </div>

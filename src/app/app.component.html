@@ -1,6 +1,9 @@
 <nb-layout>
   <nb-layout-header>
     <div class="d-flex justify-content-around w-100">
+      <a routerLink="/start" class="btn btn-primary">
+        <i class="fas fa-bars"></i>
+      </a> 
       <h4>Estado de salud</h4>
       <button (click)="changeStatus()" type="button" nbButton [status]="status ? 'danger' : 'success'"><i [class]="status ? 'fas fa-sad-cry fa-2x' :'fas fa-smile-wink fa-2x'"></i></button>
     </div>

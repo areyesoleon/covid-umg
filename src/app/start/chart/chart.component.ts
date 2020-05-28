@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { ChartType, ChartOptions } from 'chart.js';
-// import { Label } from 'ng2-charts';
-// import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import { WebSocketService } from 'src/app/web-socket.service';
+import { User } from 'src/app/core/core.service';
 
 @Component({
   selector: 'app-chart',
@@ -10,34 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChartComponent implements OnInit {
 
-  // public pieChartOptions: ChartOptions = {
-  //   responsive: true,
-  //   legend: {
-  //     position: 'top',
-  //   },
-  //   plugins: {
-  //     datalabels: {
-  //       formatter: (value, ctx) => {
-  //         const label = ctx.chart.data.labels[ctx.dataIndex];
-  //         return label;
-  //       },
-  //     },
-  //   }
-  // };
-  // public pieChartLabels: Label[] = [['Download', 'Sales'], ['In', 'Store', 'Sales'], 'Mail Sales'];
-  // public pieChartData: number[] = [300, 500, 100];
-  // public pieChartType: ChartType = 'pie';
-  // public pieChartLegend = true;
-  // public pieChartPlugins = [pluginDataLabels];
-  // public pieChartColors = [
-  //   {
-  //     backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
-  //   },
-  // ];
+  private _users: User[] = [];
 
-  constructor() { }
+  constructor(private ws: WebSocketService) { }
 
   ngOnInit(): void {
+    this.ws.listen('users:ws').subscribe((data) => {
+      this._users = data as User[];
+    });
+  }
+
+  get users(): User[] {
+    return this._users;
   }
 
 }

@@ -34,6 +34,7 @@ export class PerfilComponent implements OnInit {
     this.ws.emit('user:ws', this._form.value);
     this._form.reset();
     this._form.patchValue({sick: false});
+    this._form.patchValue({encuentros: []});
   }
 
 
